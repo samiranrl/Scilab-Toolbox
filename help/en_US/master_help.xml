@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+<!--Begin Entities-->
+<!ENTITY aeefe1c7236737fc46df2b61c46512479 SYSTEM "/home/riddhish/Downloads/Scilab-Image-Processing-Toolbox-master/help/en_US/blur.xml">
+<!ENTITY a203b3449425251e836ab5b06a1d6f035 SYSTEM "/home/riddhish/Downloads/Scilab-Image-Processing-Toolbox-master/help/en_US/canny.xml">
+<!ENTITY a0a74e1543b61e2f084c3b80d84d834a7 SYSTEM "/home/riddhish/Downloads/Scilab-Image-Processing-Toolbox-master/help/en_US/cornerEigenValAndVecs.xml">
+<!ENTITY a8ac496746b2e3b1949d2699caec1e669 SYSTEM "/home/riddhish/Downloads/Scilab-Image-Processing-Toolbox-master/help/en_US/cornerHarris.xml">
+<!ENTITY a80a4ad08e591fb25dfbde0b98ee1e662 SYSTEM "/home/riddhish/Downloads/Scilab-Image-Processing-Toolbox-master/help/en_US/filter2D.xml">
+<!ENTITY a07a8361a4c30e129bd849c338f592039 SYSTEM "/home/riddhish/Downloads/Scilab-Image-Processing-Toolbox-master/help/en_US/gaussianblur.xml">
+<!ENTITY a017a63a0036a853d6c1f096a60761fbd SYSTEM "/home/riddhish/Downloads/Scilab-Image-Processing-Toolbox-master/help/en_US/getTextSize.xml">
+<!ENTITY afd3cfaf0180398e87c14947c94fb7379 SYSTEM "/home/riddhish/Downloads/Scilab-Image-Processing-Toolbox-master/help/en_US/houghlines.xml">
+<!ENTITY a4d5a38779910bd6a76b06132aa4dcbcc SYSTEM "/home/riddhish/Downloads/Scilab-Image-Processing-Toolbox-master/help/en_US/houghlinesp.xml">
+<!ENTITY aaca5bdde621831247e46e39816f0e833 SYSTEM "/home/riddhish/Downloads/Scilab-Image-Processing-Toolbox-master/help/en_US/im2double.xml">
+<!ENTITY a3bc32be48903e6a038ee15245d452fdb SYSTEM "/home/riddhish/Downloads/Scilab-Image-Processing-Toolbox-master/help/en_US/imcontrast.xml">
+<!ENTITY aa0fac843d77dfb6b299cf46d146d7c05 SYSTEM "/home/riddhish/Downloads/Scilab-Image-Processing-Toolbox-master/help/en_US/imcrop.xml">
+<!ENTITY ae83b003a128581cc26e6856b71d78a38 SYSTEM "/home/riddhish/Downloads/Scilab-Image-Processing-Toolbox-master/help/en_US/imread.xml">
+<!ENTITY a27cb475dc3f4ef8e2f6f7a6af19fb572 SYSTEM "/home/riddhish/Downloads/Scilab-Image-Processing-Toolbox-master/help/en_US/imresize.xml">
+<!ENTITY ac14daf8968aabf57d7067a5ac9b2aac2 SYSTEM "/home/riddhish/Downloads/Scilab-Image-Processing-Toolbox-master/help/en_US/imsharpen.xml">
+<!ENTITY a70f0ba8d45737beffad5e6239b90c320 SYSTEM "/home/riddhish/Downloads/Scilab-Image-Processing-Toolbox-master/help/en_US/imwrite.xml">
+<!ENTITY aecce03cdda6213f8bd7ffe1957dcebee SYSTEM "/home/riddhish/Downloads/Scilab-Image-Processing-Toolbox-master/help/en_US/montage.xml">
+<!ENTITY abfb3a7dbb20a7e1dd520f6b418e29740 SYSTEM "/home/riddhish/Downloads/Scilab-Image-Processing-Toolbox-master/help/en_US/undistort.xml">
+<!--End Entities-->
+]>
+<book version="5.0-subset Scilab" xml:lang="en_US"
+      xmlns="http://docbook.org/ns/docbook"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:mml="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:db="http://docbook.org/ns/docbook">
+  <info xml:id='image_processing_toolbox_manual'>
+    <title>Image Processing Toolbox</title>
+  </info>
+
+<part xml:id='section_5975e0e71c17013a07737acc373af1aa'>
+<title>Image Processing Toolbox</title>
+&aeefe1c7236737fc46df2b61c46512479;
+&a203b3449425251e836ab5b06a1d6f035;
+&a0a74e1543b61e2f084c3b80d84d834a7;
+&a8ac496746b2e3b1949d2699caec1e669;
+&a80a4ad08e591fb25dfbde0b98ee1e662;
+&a07a8361a4c30e129bd849c338f592039;
+&a017a63a0036a853d6c1f096a60761fbd;
+&afd3cfaf0180398e87c14947c94fb7379;
+&a4d5a38779910bd6a76b06132aa4dcbcc;
+&aaca5bdde621831247e46e39816f0e833;
+&a3bc32be48903e6a038ee15245d452fdb;
+&aa0fac843d77dfb6b299cf46d146d7c05;
+&ae83b003a128581cc26e6856b71d78a38;
+&a27cb475dc3f4ef8e2f6f7a6af19fb572;
+&ac14daf8968aabf57d7067a5ac9b2aac2;
+&a70f0ba8d45737beffad5e6239b90c320;
+&aecce03cdda6213f8bd7ffe1957dcebee;
+&abfb3a7dbb20a7e1dd520f6b418e29740;
+</part>
+</book>
