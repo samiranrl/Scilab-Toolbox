@@ -49,7 +49,7 @@ int opencv_gray2ind(char *fname, unsigned long fname_len){
 
     //checking input argument
     CheckInputArgument(pvApiCtx, 2, 2);
-    CheckOutputArgument(pvApiCtx, 1, 1) ;
+    CheckOutputArgument(pvApiCtx, 2, 2) ;
 
     Mat image;
     retrieveImage(image, 1);
@@ -68,11 +68,17 @@ int opencv_gray2ind(char *fname, unsigned long fname_len){
     }   
 
     // The error checks for the function
+    if(n != round(n) || n<=0)
+    {
+        sciprint("The value of n must be an integer between 1 to 65536\n");
+        return 0;
+    }
 
     // The main function
     double scl_factor = n/255.0;
 
     Mat dst = Mat::zeros(image.size(),image.type());
+    Mat map = Mat::zeros(n,3,CV_32FC1);
     if(image.channels() ==3 ) {
 		
 		for(int i=0;i<image.rows;i++){
@@ -98,6 +104,12 @@ int opencv_gray2ind(char *fname, unsigned long fname_len){
 		
 	}
 
+    for(int i=0;i<n;i++){
+        map.at<float>(i,0) = ((float)((3*i)%int(n)))/(n-1);
+        map.at<float>(i,1) = ((float)((3*i + 1)%int(n)))/(n-1);
+        map.at<float>(i,2) = ((float)((3*i + 2)%int(n)))/(n-1);
+    }
+
 	string tempstring = type2str(dst.type());
     char *checker;
     checker = (char *)malloc(tempstring.size() + 1);
@@ -106,9 +118,18 @@ int opencv_gray2ind(char *fname, unsigned long fname_len){
     free(checker); 
     //Assigning the list as the Output Variable
     AssignOutputVariable(pvApiCtx, 1) = nbInputArgument(pvApiCtx) + 1;
+
+    string tempstring1 = type2str(map.type());
+    char *checker1 = (char *)malloc(tempstring1.size() + 1);
+    memcpy(checker1, tempstring1.c_str(), tempstring1.size() + 1);
+    returnImage(checker1,map,2);
+    free(checker1); 
+    //Assigning the list as the Output Variable
+    AssignOutputVariable(pvApiCtx, 2) = nbInputArgument(pvApiCtx) + 2;
     //Returning the Output Variables as arguments to the Scilab environment
     ReturnArguments(pvApiCtx);
     return 0;
 
+    }
 }
-}
+
