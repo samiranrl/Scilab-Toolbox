@@ -5,12 +5,12 @@ Date: 5th September 2015
 
 Usage:
 
-Mat dst =  gray2ind(Mat img,int n)
+[dst,map] =  gray2ind(Mat img,int n)
 
 1)  img   : Input image, grayscale only
 2)  n     : Index scale factor
 3)  dst   :	Output Image
-
+4)  map   : colormap formed nx3 matrix
 
 */////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
