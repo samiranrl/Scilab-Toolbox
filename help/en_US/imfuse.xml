@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xml:id="imfuse" xml:lang="en_US"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>imfuse</refname>
+
+		<refpurpose>Loads two images and returns a combination image based on methods</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis>I1 = imread(image1 path); <br />
+			  I2 = imread(image2 path); <br />
+			  out = imfuse(I1,I2,'method','scaling');<br />
+			  // the method and scaling parameters can be as given in the Arguments		
+		</synopsis>
+	</refsynopsisdiv>
+	
+	<refsection>
+   		<title>Arguments</title>
+		<variablelist>
+			<varlistentry><term>image1 :</term>
+				<listitem><para>Input image 1</para></listitem>
+			</varlistentry>
+			<varlistentry><term>image 2 :</term>
+				<listitem><para>Input image 2</para></listitem>
+			</varlistentry>	
+			<varlistentry><term>method :</term>
+				<listitem><para>String to denote the combination method, 
+						the choices are
+					|'montage'   | Display Images side by side <br />
+					|'blend'     | Display the blend of two Images with alpha=0.5 <br />
+					|'diff'      | Display the absolute difference between Images <br />
+					|'falsecolor'| Display image1 by green channel and image2 by red <br />
+				</para></listitem>
+			</varlistentry>
+			<varlistentry><term>scaling :</term>
+				<listitem><para>String to denote the way of scaling the images, 
+						the choices are
+					|'none'        | No Scaling <br />
+					|'joint'       | Scale the combination images <br />
+					|'independent' | Scale the images independently before combination <br />
+				
+				</para></listitem>
+			</varlistentry>
+		</variablelist>
+	</refsection>
+	
+	<refsection>
+		<title>Description</title>
+
+		<para>The function gives output of combination of two images in accordance with the two parameters, 'method' and 'scaling' which denotes the way to combine the images and how to scale them respectively. 
+		</para>
+		
+	</refsection>
+
+	<refsection>
+		<title>Example</title>
+		<programlisting role="example">out_img = imfuse(in_img1,in_img2,'blend','none');</programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Riddhish Bhalodia</member>
+			
+		</simplelist>
+	</refsection>
+</refentry>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xml:id="gray2ind" xml:lang="en_US"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>gray2ind</refname>
+
+		<refpurpose>Converts a grayscale image into indice image also provides the colormap</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis>a = imread(img1); // the image should be gray scale<br />
+			  n = 16; // could be any integer<br />	
+			  [out,map] = gray2ind(a,n);<br />
+			  out = output image<br />
+			  map = color map nx3 array <br />
+		</synopsis>
+	</refsynopsisdiv>
+	
+	<refsection>
+   		<title>Arguments</title>
+		<variablelist>
+			<varlistentry><term>image :</term>
+				<listitem><para>input grayscale image</para></listitem>
+			</varlistentry>
+			<varlistentry>	<term>n :</term>
+				<listitem><para>indice factor(int), it converts the image to having n indices</para></listitem>
+			</varlistentry>
+			
+		</variablelist>
+	</refsection>
+	
+	<refsection>
+		<title>Description</title>
+
+		<para>The function takes in a grayscale image and converts it into an indiced image, n is an integer specified to give the size of colormap. It has two outputs, one is the converted image and other is the colormap.
+		</para>
+		
+	</refsection>
+
+	<refsection>
+		<title>Example</title>
+		<programlisting role="example">[out_img,map] = gray2ind(in_img,64)</programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Riddhish Bhalodia</member>
+			
+		</simplelist>
+	</refsection>
+</refentry>

@@ -43,7 +43,7 @@ int opencv_gray2ind(char *fname, unsigned long fname_len){
     int *piAddr3  = NULL;
     int *piAddr4  = NULL;
     int *piAddr5  = NULL;
-    
+
 	double temp = 0;	
     double n;
 

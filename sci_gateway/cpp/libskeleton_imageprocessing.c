@@ -56,6 +56,8 @@ extern Gatefunc opencv_getrectsubpix;
 extern Gatefunc opencv_getrotationmatrix2D;
 extern Gatefunc opencv_houghlinesp;
 extern Gatefunc opencv_gray2ind;
+extern Gatefunc opencv_imfuse;
+extern Gatefunc opencv_imshowpair;
 static GenericTable Tab[]={
   {(Myinterfun)sci_gateway_without_putlhsvar,opencv_imread,"imread"},
   {(Myinterfun)sci_gateway_without_putlhsvar,opencv_blur,"blur"},
@@ -107,6 +109,8 @@ static GenericTable Tab[]={
   {(Myinterfun)sci_gateway_without_putlhsvar,opencv_getrotationmatrix2D,"getrotationmatrix2D"},
   {(Myinterfun)sci_gateway_without_putlhsvar,opencv_houghlinesp,"houghlinesp"},
   {(Myinterfun)sci_gateway_without_putlhsvar,opencv_gray2ind,"gray2ind"},
+  {(Myinterfun)sci_gateway_without_putlhsvar,opencv_imfuse,"imfuse"},
+  {(Myinterfun)sci_gateway_without_putlhsvar,opencv_imshowpair,"imshowpair"},
 };
  
 int C2F(libskeleton_imageprocessing)()

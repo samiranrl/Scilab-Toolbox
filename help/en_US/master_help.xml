@@ -8,14 +8,17 @@
 <!ENTITY a1177c9d6767a5dfbf56d94c59cda2c94 SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/filter2D.xml">
 <!ENTITY a868b7b1ea7c84b5e0d1750815c674264 SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/gaussianblur.xml">
 <!ENTITY aa171262bc0ad398eb1d7e89b9beb932e SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/getTextSize.xml">
+<!ENTITY ad3613726115e7d054f42e3131d93cb4f SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/gray2ind.xml">
 <!ENTITY ae72f6cd028aef2fe7e5c765a460135ed SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/houghlines.xml">
 <!ENTITY a412478343ccccd4d24356d67754ca069 SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/houghlinesp.xml">
 <!ENTITY a6c6496fd3bf7555e9ec649c5db99591e SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/im2double.xml">
 <!ENTITY a927cbe61291a506237d9b86a2fac7383 SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/imcontrast.xml">
 <!ENTITY ae7ad7ab71b1cf2c7357afdf9493501e1 SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/imcrop.xml">
+<!ENTITY a10dbb047eca320ff2dca1b1b01a0062f SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/imfuse.xml">
 <!ENTITY ac7dea9036179c1c28882e55143c2a207 SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/imread.xml">
 <!ENTITY a2bd2f993a103462fda1c5eae35e6ef32 SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/imresize.xml">
 <!ENTITY a39a554c493c1b432de269debfd519c19 SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/imsharpen.xml">
+<!ENTITY a1f616434284d68d5a311b83e50806797 SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/imshowpair.xml">
 <!ENTITY a9986bf263d7827bfa3f8421c423835f9 SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/imwrite.xml">
 <!ENTITY a593a4c18ef2945bbded34cd29851dd4c SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/montage.xml">
 <!ENTITY a7d6b2cba41c4bd3ae142c1d7cb343620 SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/undistort.xml">
@@ -42,14 +45,17 @@
 &a1177c9d6767a5dfbf56d94c59cda2c94;
 &a868b7b1ea7c84b5e0d1750815c674264;
 &aa171262bc0ad398eb1d7e89b9beb932e;
+&ad3613726115e7d054f42e3131d93cb4f;
 &ae72f6cd028aef2fe7e5c765a460135ed;
 &a412478343ccccd4d24356d67754ca069;
 &a6c6496fd3bf7555e9ec649c5db99591e;
 &a927cbe61291a506237d9b86a2fac7383;
 &ae7ad7ab71b1cf2c7357afdf9493501e1;
+&a10dbb047eca320ff2dca1b1b01a0062f;
 &ac7dea9036179c1c28882e55143c2a207;
 &a2bd2f993a103462fda1c5eae35e6ef32;
 &a39a554c493c1b432de269debfd519c19;
+&a1f616434284d68d5a311b83e50806797;
 &a9986bf263d7827bfa3f8421c423835f9;
 &a593a4c18ef2945bbded34cd29851dd4c;
 &a7d6b2cba41c4bd3ae142c1d7cb343620;
