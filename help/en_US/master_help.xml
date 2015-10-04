@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book [
 <!--Begin Entities-->
-<!ENTITY a37572ab3bdaceb85418cd51e278a05cb SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/blur.xml">
-<!ENTITY a45fda582bdaa6073e7727e1685c4b67e SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/canny.xml">
-<!ENTITY a046edaa7a28ce288598876a1c817d21c SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/cornerEigenValAndVecs.xml">
-<!ENTITY aec299f0cbfc5dcbdc3c02b0f84aa6da4 SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/cornerHarris.xml">
-<!ENTITY a1177c9d6767a5dfbf56d94c59cda2c94 SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/filter2D.xml">
-<!ENTITY a868b7b1ea7c84b5e0d1750815c674264 SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/gaussianblur.xml">
-<!ENTITY aa171262bc0ad398eb1d7e89b9beb932e SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/getTextSize.xml">
-<!ENTITY ad3613726115e7d054f42e3131d93cb4f SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/gray2ind.xml">
-<!ENTITY ae72f6cd028aef2fe7e5c765a460135ed SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/houghlines.xml">
-<!ENTITY a412478343ccccd4d24356d67754ca069 SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/houghlinesp.xml">
-<!ENTITY a6c6496fd3bf7555e9ec649c5db99591e SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/im2double.xml">
-<!ENTITY a927cbe61291a506237d9b86a2fac7383 SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/imcontrast.xml">
-<!ENTITY ae7ad7ab71b1cf2c7357afdf9493501e1 SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/imcrop.xml">
-<!ENTITY a10dbb047eca320ff2dca1b1b01a0062f SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/imfuse.xml">
-<!ENTITY ac7dea9036179c1c28882e55143c2a207 SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/imread.xml">
-<!ENTITY a2bd2f993a103462fda1c5eae35e6ef32 SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/imresize.xml">
-<!ENTITY a39a554c493c1b432de269debfd519c19 SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/imsharpen.xml">
-<!ENTITY a1f616434284d68d5a311b83e50806797 SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/imshowpair.xml">
-<!ENTITY a9986bf263d7827bfa3f8421c423835f9 SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/imwrite.xml">
-<!ENTITY a593a4c18ef2945bbded34cd29851dd4c SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/montage.xml">
-<!ENTITY a7d6b2cba41c4bd3ae142c1d7cb343620 SYSTEM "/home/riddhish/Documents/git/Scilab-Toolbox/help/en_US/undistort.xml">
+<!ENTITY a37b6c70cb9922bb999ff2d99e9b2a33a SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/blur.xml">
+<!ENTITY a1531a5153ed9dae9a929d78719fbc975 SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/canny.xml">
+<!ENTITY afaeb2bd677f0553bf2b79c1a5acc4dea SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/cornerEigenValAndVecs.xml">
+<!ENTITY ab80c057e8c431a7508366bdd6a8ecba2 SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/cornerHarris.xml">
+<!ENTITY aa9fac3e9cd025c0cd2fde73996936c7d SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/filter2D.xml">
+<!ENTITY ae3dc06570acea0a74c6dd0877decd8de SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/gaussianblur.xml">
+<!ENTITY a66baef6768f73079110d6f455ed519b7 SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/getTextSize.xml">
+<!ENTITY a5bc669c6c837b9a4a45660bec9ec1573 SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/houghlines.xml">
+<!ENTITY a5dd76c31dbaa2704cfc904a5f5fd5402 SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/houghlinesp.xml">
+<!ENTITY aa24df36aa0f7d3f4fa2a0a8d535ef74f SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/im2double.xml">
+<!ENTITY a32d7022afe6d91929deaac32584f6759 SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/imcontrast.xml">
+<!ENTITY ab4c3a511e0b97a7a351b0e57e66ce1ca SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/imcrop.xml">
+<!ENTITY ae7c23102d8e91225fb08194798fc732d SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/imread.xml">
+<!ENTITY a59c491970ff17428d0df27e6942df62a SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/imresize.xml">
+<!ENTITY a13e1318c7593f1af84431aab94b95407 SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/imsharpen.xml">
+<!ENTITY a2ee86dd2ee94e9e1b60a5516d3a5ef02 SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/imwrite.xml">
+<!ENTITY a18724aadeb14d133271ee99b5771675e SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/montage.xml">
+<!ENTITY a8577f5abe11ff3ee7f91c825cac5827a SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/undistort.xml">
 <!--End Entities-->
 ]>
 <book version="5.0-subset Scilab" xml:lang="en_US"
@@ -36,28 +33,25 @@
     <title>Image Processing Toolbox</title>
   </info>
 
-<part xml:id='section_5490185e1387fc157acaaf5c8f228dff'>
+<part xml:id='section_35ca0d148d9a7e592003525de26c737e'>
 <title>Image Processing Toolbox</title>
-&a37572ab3bdaceb85418cd51e278a05cb;
-&a45fda582bdaa6073e7727e1685c4b67e;
-&a046edaa7a28ce288598876a1c817d21c;
-&aec299f0cbfc5dcbdc3c02b0f84aa6da4;
-&a1177c9d6767a5dfbf56d94c59cda2c94;
-&a868b7b1ea7c84b5e0d1750815c674264;
-&aa171262bc0ad398eb1d7e89b9beb932e;
-&ad3613726115e7d054f42e3131d93cb4f;
-&ae72f6cd028aef2fe7e5c765a460135ed;
-&a412478343ccccd4d24356d67754ca069;
-&a6c6496fd3bf7555e9ec649c5db99591e;
-&a927cbe61291a506237d9b86a2fac7383;
-&ae7ad7ab71b1cf2c7357afdf9493501e1;
-&a10dbb047eca320ff2dca1b1b01a0062f;
-&ac7dea9036179c1c28882e55143c2a207;
-&a2bd2f993a103462fda1c5eae35e6ef32;
-&a39a554c493c1b432de269debfd519c19;
-&a1f616434284d68d5a311b83e50806797;
-&a9986bf263d7827bfa3f8421c423835f9;
-&a593a4c18ef2945bbded34cd29851dd4c;
-&a7d6b2cba41c4bd3ae142c1d7cb343620;
+&a37b6c70cb9922bb999ff2d99e9b2a33a;
+&a1531a5153ed9dae9a929d78719fbc975;
+&afaeb2bd677f0553bf2b79c1a5acc4dea;
+&ab80c057e8c431a7508366bdd6a8ecba2;
+&aa9fac3e9cd025c0cd2fde73996936c7d;
+&ae3dc06570acea0a74c6dd0877decd8de;
+&a66baef6768f73079110d6f455ed519b7;
+&a5bc669c6c837b9a4a45660bec9ec1573;
+&a5dd76c31dbaa2704cfc904a5f5fd5402;
+&aa24df36aa0f7d3f4fa2a0a8d535ef74f;
+&a32d7022afe6d91929deaac32584f6759;
+&ab4c3a511e0b97a7a351b0e57e66ce1ca;
+&ae7c23102d8e91225fb08194798fc732d;
+&a59c491970ff17428d0df27e6942df62a;
+&a13e1318c7593f1af84431aab94b95407;
+&a2ee86dd2ee94e9e1b60a5516d3a5ef02;
+&a18724aadeb14d133271ee99b5771675e;
+&a8577f5abe11ff3ee7f91c825cac5827a;
 </part>
 </book>
