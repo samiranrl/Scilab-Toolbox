@@ -8,8 +8,8 @@ Functions for the scilab toolboxes.
 
 Dependencies
 ------------
-Scilab		>= 5.2		(http://www.scilab.org/)
-OpenCV		>= 1.0.0	(http://sourceforge.net/projects/opencvlibrary/)
+Scilab		>= 5.0		(http://www.scilab.org/)
+OpenCV		>= 2.4.9	(http://sourceforge.net/projects/opencvlibrary/)
 
 Usage
 ------------
