@@ -1,6 +1,25 @@
-/********************************************************
-Author: Samiran Roy
-********************************************************/
+/*
+ * integralImage
+ *        
+ * integralImage in scilab
+ *     
+ */
+
+// Created by Samiran Roy, mail: samiranroy@cse.iitb.ac.in
+// An implementation of integralImage method of matlab
+// Usage: 
+// integralImage(I) : Calculate the integral image of I, I must be grayscale
+// imboxfilt(I,method) 
+
+
+// method : 'upright' (default)
+// method : 'rotated' The area sums are calulated over a rectangle, which is rotated 45 degrees
+
+
+// Known Changes from Matlab:
+/*
+ * 1) None, as of now
+ */
 
 #include <numeric>
 #include "opencv2/core/core.hpp"
@@ -9,135 +28,96 @@ Author: Samiran Roy
 #include <iostream>
 using namespace cv;
 using namespace std;
-extern "C"
-{
-  #include "api_scilab.h"
-  #include "Scierror.h"
-  #include "BOOL.h"
-  #include <localization.h>
-  #include "sciprint.h"
-  #include "../common.h"
-  
-  int opencv_integralImage(char *fname, unsigned long fname_len)
-  {
-    SciErr sciErr;
-    int intErr = 0;
-    int iRows=0,iCols=0;
-    int *piAddr = NULL;
-  int *piAddr1 = NULL;
-    int *piAddrNew = NULL;
-    int *piAddr2  = NULL;
-    int *piAddr3  = NULL;
-  
-  int error;
-        int iRet    = 0;
-        char* pstData = NULL;
+extern "C" {
+#include "api_scilab.h"
+#include "Scierror.h"
+#include "BOOL.h"
+#include <localization.h>
+#include "sciprint.h"
+#include "../common.h"
 
+int opencv_integralImage(char *fname, unsigned long fname_len) {
+	SciErr sciErr;
+	int intErr = 0;
+	int iRows = 0, iCols = 0;
+	int *piAddr = NULL;
+	int *piAddr1 = NULL;
 
- 
-    
-    Point anchor;
-    double delta;
-    int ddepth;
-    int kernel_size;
-    Mat kernel;
+	int error;
 
-    //checking input argument
-    CheckInputArgument(pvApiCtx, 1, 2);
-    CheckOutputArgument(pvApiCtx, 1, 1) ;
+// String holding the second argument
+	int iRet = 0;
+	char* pstData = NULL;
 
-    //get input matrix
+// Checking input argument
+	CheckInputArgument(pvApiCtx, 1, 2);
+	CheckOutputArgument(pvApiCtx, 1, 1);
 
-    Mat image;
-    retrieveImage(image, 1);
+// Get input image
 
+	Mat image;
+	retrieveImage(image, 1);
 
+// Error Checks
 
-
-
- // error Checks
-
-
-if (image.channels()>1)
-{
-sciprint("The image must be grayscale."); 
-return 0;
-}
- 
-
-
-    Mat new_image,integralimage,squaredimage,rotatedimage;
-
-
-integral(image,integralimage,squaredimage,rotatedimage,-1);
-
-
-
-  // Get the number of input arguments
-    int inputarg=*getNbInputArgument(pvApiCtx);
-
-if (inputarg==1)
-integralimage.copyTo(new_image);
-
-if (inputarg==2)
-
-{
- sciErr = getVarAddressFromPosition(pvApiCtx, 2,&piAddr1);
-
-if(sciErr.iErr)
-	{
-		printError(&sciErr, 0);
+	if (image.channels() > 1) {
+		sciprint("The image must be grayscale.");
 		return 0;
 	}
 
-	if(isStringType(pvApiCtx, piAddr1))
+// Output variables holding integralImage, squared integralImage, integralImage over rectangle rotated by 45 degrees
+	Mat new_image, integralimage, squaredimage, rotatedimage;
+
+	integral(image, integralimage, squaredimage, rotatedimage, -1);
+
+// Get the number of input arguments
+	int inputarg = *getNbInputArgument(pvApiCtx);
+
+	if (inputarg == 1)
+		integralimage.copyTo(new_image);
+
+	if (inputarg == 2)
+
 	{
-		if(isScalar(pvApiCtx, piAddr1))
-		{
-			
-                        iRet = getAllocatedSingleString(pvApiCtx, piAddr1, &pstData);
-                 }
-        }
-   if(strcmp(pstData,"rotated")==0)
-       {
-          rotatedimage.copyTo(new_image);
-       }
-else if (strcmp(pstData,"upright")==0)
-{
-integralimage.copyTo(new_image);
+		sciErr = getVarAddressFromPosition(pvApiCtx, 2, &piAddr1);
+
+		if (sciErr.iErr) {
+			printError(&sciErr, 0);
+			return 0;
+		}
+
+		if (isStringType(pvApiCtx, piAddr1)) {
+			if (isScalar(pvApiCtx, piAddr1)) {
+
+				iRet = getAllocatedSingleString(pvApiCtx, piAddr1, &pstData);
+			}
+		}
+		if (strcmp(pstData, "rotated") == 0) {
+			rotatedimage.copyTo(new_image);
+		} else if (strcmp(pstData, "upright") == 0) {
+			integralimage.copyTo(new_image);
+		} else {
+			sciprint("Unknown Parameter Name:%s\n", pstData);
+
+		}
+
+	}
+
+	int temp = nbInputArgument(pvApiCtx) + 1;
+	string tempstring = type2str(new_image.type());
+	char *checker;
+	checker = (char *) malloc(tempstring.size() + 1);
+	memcpy(checker, tempstring.c_str(), tempstring.size() + 1);
+	returnImage(checker, new_image, 1);
+	free(checker);
+
+	//Assigning the list as the Output Variable
+	AssignOutputVariable(pvApiCtx, 1) = nbInputArgument(pvApiCtx) + 1;
+	//Returning the Output Variables as arguments to the Scilab environment
+	ReturnArguments (pvApiCtx);
+	return 0;
+
 }
-
-else if (strcmp(pstData,"upright")==0)
-{
-integralimage.copyTo(new_image);
-}
-
-
-
-
-
-
-}
-
-
-
-
-
-
-    int temp = nbInputArgument(pvApiCtx) + 1;
-    string tempstring = type2str(new_image.type());
-    char *checker;
-    checker = (char *)malloc(tempstring.size() + 1);
-    memcpy(checker, tempstring.c_str(), tempstring.size() + 1);
-    returnImage(checker,new_image,1);
-    free(checker); 
-
-    //Assigning the list as the Output Variable
-    AssignOutputVariable(pvApiCtx, 1) = nbInputArgument(pvApiCtx) + 1;
-    //Returning the Output Variables as arguments to the Scilab environment
-    ReturnArguments(pvApiCtx);
-    return 0;
-
-  }
 /* ==================================================================== */
 }
+

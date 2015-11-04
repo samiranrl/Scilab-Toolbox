@@ -421,7 +421,7 @@ int opencv_imboxfilt(char *fname, unsigned long fname_len) {
 
 	{
 
-//performing convolution (finally)
+//performing convolution
 		filter2D(image, new_image, ddepth, kernel, anchor, delta, borderType);
 	}
 

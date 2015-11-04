@@ -22,9 +22,9 @@ int opencv_bwlookup(char *fname, unsigned long fname_len) {
 	int intErr = 0;
 	int iRows = 0, iCols = 0;
 	int *piAddr = NULL;
-	int *piAddrNew = NULL;
+	int *piAddr1 = NULL;
 	int *piAddr2 = NULL;
-	int *piAddr3 = NULL;
+
 
 
 
@@ -74,7 +74,7 @@ int opencv_bwlookup(char *fname, unsigned long fname_len) {
 	}
 
 	//pad the temporary copy
-	copyMakeBorder(tempimg, tempimg, 1, 1, 1, 1, BORDER_CONSTANT, 0);
+	copyMakeBorder(tempimg, tempimg, 1, 1, 1, 1, BORDER_REPLICATE, 0);
 
 
         //output image
@@ -127,7 +127,7 @@ int opencv_bwlookup(char *fname, unsigned long fname_len) {
 				new_image.at<double>(j, i) = lut.at<double>(0, index);
 
 			}
-
+	
 		}
 	}
 

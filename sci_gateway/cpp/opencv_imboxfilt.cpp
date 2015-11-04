@@ -6,7 +6,7 @@
  */
 
 // Created by Samiran Roy, mail: samiranroy@cse.iitb.ac.in
-// An implementation of imboxfilt method in matlab
+// An implementation of imboxfilt method of matlab
 // Usage: 
 // imboxfilt(I) : Convolve image I with 3*3 box kernel
 // imboxfilt(I,k_size) : Convolve image I with k_size*k_size box kernel

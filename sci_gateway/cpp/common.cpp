@@ -135,9 +135,9 @@ int retrieveImage(Mat &image,int pos)
                     {
                         for(j=0;j<iCols;j++)
                         {
-                          image.at<Vec3b>(i,j)[2]=pstDataR[k];
-                          image.at<Vec3b>(i,j)[1]=pstDataG[k];
-                          image.at<Vec3b>(i,j)[0]=pstDataB[k++];
+                          image.at<Vec3b>(i,j)[2]=pstDataR[i+iRows*j];
+                          image.at<Vec3b>(i,j)[1]=pstDataG[i+iRows*j];
+                          image.at<Vec3b>(i,j)[0]=pstDataB[i+iRows*j];
                         }
                     }
                 }
@@ -165,7 +165,7 @@ int retrieveImage(Mat &image,int pos)
                     k=0;
                     for(i=0;i<iRows;i++)
                         for(j=0;j<iCols;j++)
-                          image.at<uchar>(i,j)=pstDataR[k++];
+                          image.at<uchar>(i,j)=pstDataR[i+iRows*j];
                 }
                 break;
             }
@@ -227,9 +227,10 @@ int retrieveImage(Mat &image,int pos)
                     {
                         for(j=0;j<iCols;j++)
                         {
-                          image.at<Vec3s>(i,j)[2]=pstDataR[k];
-                          image.at<Vec3s>(i,j)[1]=pstDataG[k];
-                          image.at<Vec3s>(i,j)[0]=pstDataB[k++];
+                          image.at<Vec3s>(i,j)[2]=pstDataR[i+iRows*j];
+                          image.at<Vec3s>(i,j)[1]=pstDataG[i+iRows*j];
+                          image.at<Vec3s>(i,j)[0]=pstDataB[i+iRows*j];
+                     //i+iRows*j
                         }
                     }
                 }
@@ -257,7 +258,7 @@ int retrieveImage(Mat &image,int pos)
                     k=0;
                     for(i=0;i<iRows;i++)
                         for(j=0;j<iCols;j++)
-                          image.at<ushort>(i,j)=pstDataR[k++];
+                          image.at<ushort>(i,j)=pstDataR[i+iRows*j];
                 }
                 break;
             }
@@ -319,9 +320,9 @@ int retrieveImage(Mat &image,int pos)
                     {
                         for(j=0;j<iCols;j++)
                         {
-                          image.at<Vec3s>(i,j)[2]=pstDataR[k];
-                          image.at<Vec3s>(i,j)[1]=pstDataG[k];
-                          image.at<Vec3s>(i,j)[0]=pstDataB[k++];
+                          image.at<Vec3s>(i,j)[2]=pstDataR[i+iRows*j];
+                          image.at<Vec3s>(i,j)[1]=pstDataG[i+iRows*j];
+                          image.at<Vec3s>(i,j)[0]=pstDataB[i+iRows*j];
                         }
                     }
                 }
@@ -349,7 +350,7 @@ int retrieveImage(Mat &image,int pos)
                     k=0;
                     for(i=0;i<iRows;i++)
                         for(j=0;j<iCols;j++)
-                          image.at<short>(i,j)=pstDataR[k++];
+                          image.at<short>(i,j)=pstDataR[i+iRows*j];
                 }
                 break;
             }
@@ -413,9 +414,9 @@ int retrieveImage(Mat &image,int pos)
             {
                 for(j=0;j<iCols;j++)
                 {
-                    image.at<Vec3d>(i,j)[2]=pstDataR[k];
-                    image.at<Vec3d>(i,j)[1]=pstDataG[k];
-                    image.at<Vec3d>(i,j)[0]=pstDataB[k++];
+                    image.at<Vec3d>(i,j)[2]=pstDataR[i+iRows*j];
+                    image.at<Vec3d>(i,j)[1]=pstDataG[i+iRows*j];
+                    image.at<Vec3d>(i,j)[0]=pstDataB[i+iRows*j];
                 }
             }
         }
@@ -443,7 +444,7 @@ int retrieveImage(Mat &image,int pos)
             k=0;
             for(i=0;i<iRows;i++)
                 for(j=0;j<iCols;j++)
-                    image.at<double>(i,j)=pstDataR[k++];
+                    image.at<double>(i,j)=pstDataR[i+iRows*j];
         }
     }
     return 1;
@@ -489,15 +490,15 @@ int returnImage(char *checker,Mat img,int pos)
                 for(j=0;j<img.cols;j++)
                 {
                     Vec3b intensity = img.at<Vec3b>(i, j);
-                    *(r + i*img.cols + j)=intensity.val[2];
-                    *(g + i*img.cols + j)=intensity.val[1];
-                    *(b + i*img.cols + j)=intensity.val[0];
+                    *(r + j*img.rows + i)=intensity.val[2];
+                    *(g + j*img.rows + i)=intensity.val[1];
+                    *(b + j*img.rows + i)=intensity.val[0];
                 }
             }
 
 
             //Adding the R value matrix to the list
-            sciErr = createMatrixOfUnsignedInteger8InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 1, img.rows, img.cols, r);
+            sciErr = createMatrixOfUnsignedInteger8InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 1, img.rows,img.cols, r);
             free(r);
             if(sciErr.iErr)
             {
@@ -506,7 +507,7 @@ int returnImage(char *checker,Mat img,int pos)
             }
 
             //Adding the G value matrix to the list
-            sciErr = createMatrixOfUnsignedInteger8InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 2, img.rows, img.cols, g);
+            sciErr = createMatrixOfUnsignedInteger8InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 2, img.rows,img.cols,g);
             free(g);
             if(sciErr.iErr)
             {
@@ -515,7 +516,7 @@ int returnImage(char *checker,Mat img,int pos)
             }
 
             //Adding the B value matrix to the list
-            sciErr = createMatrixOfUnsignedInteger8InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 3, img.rows, img.cols, b);
+            sciErr = createMatrixOfUnsignedInteger8InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 3, img.rows,img.cols, b);
             free(b);
             if(sciErr.iErr)
             {
@@ -531,11 +532,11 @@ int returnImage(char *checker,Mat img,int pos)
             //The next block of code retrieves the image colour values at a specified pixel, and assigns it to the matrices
             for(i=0;i<img.rows;i++)
                 for(j=0;j<img.cols;j++)
-                    *(r + i*img.cols + j)=img.at<uchar>(i, j);
+                    *(r + i*img.rows + j)=img.at<uchar>(i, j);
 
 
             //Adding the image colour value matrix to the list
-            sciErr = createMatrixOfUnsignedInteger8InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 1, img.rows, img.cols, r);
+            sciErr = createMatrixOfUnsignedInteger8InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 1,img.rows,img.cols, r);
             free(r);
             if(sciErr.iErr)
             {
@@ -560,14 +561,14 @@ int returnImage(char *checker,Mat img,int pos)
                 for(j=0;j<img.cols;j++)
                 {
                     Vec3s intensity = img.at<Vec3s>(i, j);
-                    *(r + i*img.cols + j)=intensity.val[2];
-                    *(g + i*img.cols + j)=intensity.val[1];
-                    *(b + i*img.cols + j)=intensity.val[0];
+                    *(r + i*img.rows + j)=intensity.val[2];
+                    *(g + i*img.rows + j)=intensity.val[1];
+                    *(b + i*img.rows + j)=intensity.val[0];
                 }
             }
 
             //Adding the R value matrix to the list
-            sciErr = createMatrixOfUnsignedInteger16InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 1, img.rows, img.cols, r);
+            sciErr = createMatrixOfUnsignedInteger16InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 1, img.rows,img.cols,r);
             free(r);
             if(sciErr.iErr)
             {
@@ -576,7 +577,7 @@ int returnImage(char *checker,Mat img,int pos)
             }
 
             //Adding the G value matrix to the list
-            sciErr = createMatrixOfUnsignedInteger16InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 2, img.rows, img.cols, g);
+            sciErr = createMatrixOfUnsignedInteger16InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 2, img.rows,img.cols,g);
             free(g);
             if(sciErr.iErr)
             {
@@ -585,7 +586,7 @@ int returnImage(char *checker,Mat img,int pos)
             }
 
             //Adding the B value matrix to the list
-            sciErr = createMatrixOfUnsignedInteger16InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 3, img.rows, img.cols, b);
+            sciErr = createMatrixOfUnsignedInteger16InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 3, img.rows,img.cols, b);
             free(b);
             if(sciErr.iErr)
             {
@@ -601,10 +602,10 @@ int returnImage(char *checker,Mat img,int pos)
             //The next block of code retrieves the image colour values at a specified pixel, and assigns it to the matrices
             for(i=0;i<img.rows;i++)
                 for(j=0;j<img.cols;j++)
-                    *(r + i*img.cols + j)=img.at<ushort>(i, j);
+                    *(r + i*img.rows + j)=img.at<ushort>(i, j);
 
             //Adding the image colour value matrix to the list
-            sciErr = createMatrixOfUnsignedInteger16InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 1, img.rows, img.cols, r);
+            sciErr = createMatrixOfUnsignedInteger16InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 1, img.rows,img.cols,r);
             free(r);
             if(sciErr.iErr)
             {
@@ -628,14 +629,14 @@ int returnImage(char *checker,Mat img,int pos)
                 for(j=0;j<img.cols;j++)
                 {
                     Vec3s intensity = img.at<Vec3s>(i, j);
-                    *(r + i*img.cols + j)=intensity.val[2];
-                    *(g + i*img.cols + j)=intensity.val[1];
-                    *(b + i*img.cols + j)=intensity.val[0];
+                    *(r + i*img.rows + j)=intensity.val[2];
+                    *(g + i*img.rows + j)=intensity.val[1];
+                    *(b + i*img.rows + j)=intensity.val[0];
                 }
             }
 
             //Adding the R value matrix to the list
-            sciErr = createMatrixOfInteger16InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 1, img.rows, img.cols, r);
+            sciErr = createMatrixOfInteger16InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 1, img.rows,img.cols, r);
             free(r);
             if(sciErr.iErr)
             {
@@ -644,7 +645,7 @@ int returnImage(char *checker,Mat img,int pos)
             }
 
             //Adding the G value matrix to the list
-            sciErr = createMatrixOfInteger16InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 2, img.rows, img.cols, g);
+            sciErr = createMatrixOfInteger16InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 2, img.rows,img.cols, g);
             free(g);
             if(sciErr.iErr)
             {
@@ -653,7 +654,7 @@ int returnImage(char *checker,Mat img,int pos)
             }
 
             //Adding the B value matrix to the list
-            sciErr = createMatrixOfInteger16InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 3, img.rows, img.cols, b);
+            sciErr = createMatrixOfInteger16InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 3, img.rows,img.cols,b);
             free(b);
             if(sciErr.iErr)
             {
@@ -670,10 +671,10 @@ int returnImage(char *checker,Mat img,int pos)
             //The next block of code retrieves the image colour values at a specified pixel, and assigns it to the matrices
             for(i=0;i<img.rows;i++)
                 for(j=0;j<img.cols;j++)
-                    *(r + i*img.cols + j)=img.at<short>(i, j);
+                    *(r + i*img.rows+ j)=img.at<short>(i, j);
 
             //Adding the image colour value matrix to the list
-            sciErr = createMatrixOfInteger16InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 1, img.rows, img.cols, r);
+            sciErr = createMatrixOfInteger16InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 1, img.rows,img.cols,r);
             free(r);
             if(sciErr.iErr)
             {
@@ -697,14 +698,14 @@ int returnImage(char *checker,Mat img,int pos)
                 for(j=0;j<img.cols;j++)
                 {
                     Vec3i intensity = img.at<Vec3i>(i, j);
-                    *(r + i*img.cols + j)=intensity.val[2];
-                    *(g + i*img.cols + j)=intensity.val[1];
-                    *(b + i*img.cols + j)=intensity.val[0];
+                    *(r + i*img.rows + j)=intensity.val[2];
+                    *(g + i*img.rows + j)=intensity.val[1];
+                    *(b + i*img.rows + j)=intensity.val[0];
                 }
             }
 
             //Adding the R value matrix to the list
-            sciErr = createMatrixOfInteger32InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 1, img.rows, img.cols, r);
+            sciErr = createMatrixOfInteger32InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 1, img.rows,img.cols,r);
             free(r);
             if(sciErr.iErr)
             {
@@ -713,7 +714,7 @@ int returnImage(char *checker,Mat img,int pos)
             }
 
             //Adding the G value matrix to the list
-            sciErr = createMatrixOfInteger32InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 2, img.rows, img.cols, g);
+            sciErr = createMatrixOfInteger32InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 2, img.rows,img.cols,g);
             free(g);
             if(sciErr.iErr)
             {
@@ -722,7 +723,7 @@ int returnImage(char *checker,Mat img,int pos)
             }
 
             //Adding the B value matrix to the list
-            sciErr = createMatrixOfInteger32InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 3, img.rows, img.cols, b);
+            sciErr = createMatrixOfInteger32InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 3, img.rows,img.cols,b);
             free(b);
             if(sciErr.iErr)
             {
@@ -738,10 +739,10 @@ int returnImage(char *checker,Mat img,int pos)
             //The next block of code retrieves the image colour values at a specified pixel, and assigns it to the matrices
             for(i=0;i<img.rows;i++)
                 for(j=0;j<img.cols;j++)
-                    *(r + i*img.cols + j)=img.at<int>(i, j);
+                    *(r + i*img.rows+ j)=img.at<int>(i, j);
 
             //Adding the image colour value matrix to the list
-            sciErr = createMatrixOfInteger32InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 1, img.rows, img.cols, r);
+            sciErr = createMatrixOfInteger32InList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 1,img.rows,img.cols, r);
             free(r);
             if(sciErr.iErr)
             {
@@ -766,14 +767,14 @@ int returnImage(char *checker,Mat img,int pos)
                 for(j=0;j<img.cols;j++)
                 {
                     Vec3d intensity = img.at<Vec3d>(i, j);
-                    *(r + i*img.cols + j)=intensity.val[2];
-                    *(g + i*img.cols + j)=intensity.val[1];
-                    *(b + i*img.cols + j)=intensity.val[0];
+                    *(r + i*img.rows + j)=intensity.val[2];
+                    *(g + i*img.rows + j)=intensity.val[1];
+                    *(b + i*img.rows + j)=intensity.val[0];
                 }
             }
 
             //Adding the R value matrix to the list
-            sciErr = createMatrixOfDoubleInList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 1, img.rows, img.cols, r);
+            sciErr = createMatrixOfDoubleInList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 1, img.rows,img.cols,r);
             free(r);
             if(sciErr.iErr)
             {
@@ -782,7 +783,7 @@ int returnImage(char *checker,Mat img,int pos)
             }
 
             //Adding the G value matrix to the list
-            sciErr = createMatrixOfDoubleInList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 2, img.rows, img.cols, g);
+            sciErr = createMatrixOfDoubleInList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 2, img.rows,img.cols,g);
             free(g);
             if(sciErr.iErr)
             {
@@ -791,7 +792,7 @@ int returnImage(char *checker,Mat img,int pos)
             }
 
             //Adding the B value matrix to the list
-            sciErr = createMatrixOfDoubleInList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 3, img.rows, img.cols, b);
+            sciErr = createMatrixOfDoubleInList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 3, img.rows,img.cols,b);
             free(b);
             if(sciErr.iErr)
             {
@@ -806,10 +807,10 @@ int returnImage(char *checker,Mat img,int pos)
             //The next block of code retrieves the image colour values at a specified pixel, and assigns it to the matrices
             for(i=0;i<img.rows;i++)
                 for(j=0;j<img.cols;j++)
-                    *(r + i*img.cols + j)=img.at<float>(i, j);
+                    *(r + i*img.rows+ j)=img.at<float>(i, j);
 
             //Adding the image colour value matrix to the list
-            sciErr = createMatrixOfDoubleInList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 1, img.rows, img.cols, r);
+            sciErr = createMatrixOfDoubleInList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 1,img.rows,img.cols,r);
             free(r);
             if(sciErr.iErr)
             {
@@ -832,14 +833,14 @@ int returnImage(char *checker,Mat img,int pos)
                 for(j=0;j<img.cols;j++)
                 {
                     Vec3d intensity = img.at<Vec3d>(i, j);
-                    *(r + i*img.cols + j)=intensity.val[2];
-                    *(g + i*img.cols + j)=intensity.val[1];
-                    *(b + i*img.cols + j)=intensity.val[0];
+                    *(r + i*img.rows + j)=intensity.val[2];
+                    *(g + i*img.rows + j)=intensity.val[1];
+                    *(b + i*img.rows + j)=intensity.val[0];
                 }
             }
 
             //Adding the R value matrix to the list
-            sciErr = createMatrixOfDoubleInList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 1, img.rows, img.cols, r);
+            sciErr = createMatrixOfDoubleInList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 1, img.rows,img.cols,r);
             free(r);
             if(sciErr.iErr)
             {
@@ -848,7 +849,7 @@ int returnImage(char *checker,Mat img,int pos)
             }
 
             //Adding the G value matrix to the list
-            sciErr = createMatrixOfDoubleInList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 2, img.rows, img.cols, g);
+            sciErr = createMatrixOfDoubleInList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 2, img.rows,img.cols,g);
             free(g);
             if(sciErr.iErr)
             {
@@ -857,7 +858,7 @@ int returnImage(char *checker,Mat img,int pos)
             }
 
             //Adding the B value matrix to the list
-            sciErr = createMatrixOfDoubleInList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 3, img.rows, img.cols, b);
+            sciErr = createMatrixOfDoubleInList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 3, img.rows,img.cols, b);
             free(b);
             if(sciErr.iErr)
             {
@@ -873,10 +874,10 @@ int returnImage(char *checker,Mat img,int pos)
             //The next block of code retrieves the image colour values at a specified pixel, and assigns it to the matrices
             for(i=0;i<img.rows;i++)
                 for(j=0;j<img.cols;j++)
-                    *(r + i*img.cols + j)=img.at<double>(i, j);
+                    *(r + i*img.rows + j)=img.at<double>(i, j);
 
             //Adding the image colour value matrix to the list
-            sciErr = createMatrixOfDoubleInList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 1, img.rows, img.cols, r);
+            sciErr = createMatrixOfDoubleInList(pvApiCtx, nbInputArgument(pvApiCtx)+pos , piAddrNew, 1, img.rows,img.cols, r);
             free(r);
             if(sciErr.iErr)
             {
