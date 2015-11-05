@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xml:id="imboxfilt" xml:lang="en_US"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>imboxfilt</refname>
+
+		<refpurpose> n*m box filter convolution in scilab with a padding type and normalization factor.</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+<synopsis>      List output_image = imboxfilt(List Input_Image);
+              	List output_image = imboxfilt(List Input_Image,kernel_size);
+		List output_image = imboxfilt(List Input_Image,[kernel_size_x,kernel_size_y]);
+	        List output_image = imboxfilt(List Input_Image,kernel_size,padding_type);
+		List output_image = imboxfilt(List Input_Image,kernel_size,padding_type,Normalization_Factor);</synopsis>
+
+		
+	</refsynopsisdiv>
+	
+	<refsection>
+   		<title>Arguments</title>
+		<variablelist>
+			<varlistentry><term>Input_Image :</term>
+				<listitem><para>the image matrix on which box filter has to be applied</para></listitem>
+			</varlistentry>
+			<varlistentry><term>kernel_size :</term>
+				<listitem><para>size of the box filter to be applied - must be an odd positive scalar >=3 - If not mentioned, default is 3</para></listitem>
+			</varlistentry>
+			<varlistentry><term>[kernel_size_x,kernel_size_y]:</term>
+				<listitem><para>size of the box filter applied, kernel_size can be replaced by a 1*2 vector of the kernel size in the x and y directions respectively </para></listitem>
+			</varlistentry>
+
+
+
+
+
+
+			<varlistentry><term>padding_type</term>
+				<listitem><para>value: 'default' : replicate the border padding, or take the value of the border pixel to be the closest image border pixel</para></listitem>
+<listitem><para>value: 'symmetric' : take the border values to be a reflection of the image</para></listitem>
+<listitem><para>value: 'circular' : take the border values assuming that the image is periodic</para></listitem>
+<listitem><para>value: 'constant' : pad the image with the provided scalar double</para></listitem>
+			</varlistentry>
+			<varlistentry><term>'NormalizationFactor' :</term>
+				<listitem><para>value: any scalar: this is multiplied to the image after convolution</para></listitem>
+			</varlistentry>
+			
+		</variablelist>
+	</refsection>
+	
+	<refsection>
+		<title>Description</title>
+		<para>
+			The function smoothes an image using a n*m box filter. 
+
+		</para>
+	</refsection>
+
+	<refsection>
+		<title>Example</title>
+		<programlisting role="example"><![CDATA[
+							a = imread("lena.jpg");
+							b=imboxfilt(a);
+							imshow(b);
+   		]]>
+
+<![CDATA[
+							a = imread("lena.jpg");
+							b=imboxfilt(a,7);
+							imshow(b);
+   		]]>
+
+
+<![CDATA[
+							a = imread("lena.jpg");
+							b=imboxfilt(a,[9,11]);
+							imshow(b);
+   		]]>
+
+<![CDATA[
+							a = imread("lena.jpg");
+							b=imboxfilt(a,[9,11],'circular');
+							imshow(b);
+   		]]>
+<![CDATA[
+							a = imread("lena.jpg");
+							b=imboxfilt(a,[9,11],0,0.5);
+							imshow(b);
+   		]]>
+
+
+
+
+
+
+
+
+</programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Samiran Roy</member>
+		</simplelist>
+	</refsection>
+</refentry>

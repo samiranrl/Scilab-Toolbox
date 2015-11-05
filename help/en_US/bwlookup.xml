@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xml:id="bwlookup" xml:lang="en_US"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>bwlookup</refname>
+
+		<refpurpose> 2*2 and 3*3 non linear filtering of a binary image based on a lookup table  which is taken as input from the user</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis>List output_image = bwlookup(List input_image,lookup_table);</synopsis>
+	</refsynopsisdiv>
+	
+	<refsection>
+   		<title>Arguments</title>
+		<variablelist>
+			<varlistentry><term>input_image :</term>
+				<listitem><para>the input binary grayscale image matrix on which the non linear filtering has to be applied. If the image is not binary, it is converted to one.</para></listitem>
+			</varlistentry>
+			<varlistentry><term>lookup_table :</term>
+				<listitem><para>A lookup table in the form of a 1*16 double vector [2*2 filtering], or a [1*512] double vector [3*3 filtering]</para></listitem>
+			</varlistentry>
+			
+		</variablelist>
+	</refsection>
+	
+	<refsection>
+		<title>Description</title>
+		<para>
+			The function performs 2*2 or 3*3 non linear filtering on a grayscale binary image using a lookup table.
+			
+		</para>
+	</refsection>
+
+	<refsection>
+		<title>Example</title>
+		<programlisting role="example"><![CDATA[
+							a = imread("gs.jpg");
+							b=bwlookup(a,[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]);
+							imshow(b);
+   		]]></programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Samiran Roy</member>
+		</simplelist>
+	</refsection>
+</refentry>

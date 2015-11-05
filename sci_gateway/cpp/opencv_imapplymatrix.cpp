@@ -29,7 +29,7 @@ extern "C"
   {
     SciErr sciErr;
     int intErr = 0;
-    int iRows=0,iCols=0;
+  
 
 // the multiplier matrix
  //double *M = NULL;
@@ -58,36 +58,40 @@ CheckInputArgument(pvApiCtx, 2, 4);
    int num_channels=image.channels();
 
 
-sciprint("number of channels in input: %d \n",num_channels);
+
+
+
+
+  for (int i = 0; i < image.rows; i++) {
+    for (int j = 0; j < image.cols; j++) {
+      sciprint("%f ", image.at<double>(i,j));
+
+    }
+    
+ sciprint("\n");  
+  }
 
 
 
 
 
-Mat M;
-retrieveImage(M, 1);
 
+// getting the coefficient matrix
 
-iRows=M.rows;
-iCols=M.cols;
+ double* M;
 
+  int iRows = 0, iCols = 0;
 
-for (int i=0;i<iRows;i++)
-{
-sciprint("\n");
-for (int j=0;j<iCols;j++)
-{
-
-
-sciprint("%G ",M.at<double>(i,j));
-
-}}
-
-
-
-
-sciprint("number of channels in output: %d \n",iRows);
-
+  sciErr = getVarAddressFromPosition(pvApiCtx, 1, &piAddr);
+  if (sciErr.iErr) {
+    printError(&sciErr, 0);
+    return -1;
+  }
+  sciErr = getMatrixOfDouble(pvApiCtx, piAddr, &iRows, &iCols, &M);
+  if (sciErr.iErr) {
+    printError(&sciErr, 0);
+    return -1;
+  }
 
 
 
@@ -96,7 +100,7 @@ sciprint("number of channels in output: %d \n",iRows);
 if (iCols!=num_channels)
 {
 sciprint("The number of columns in the multiplier must match the size of the last dimension in the image.\n");
-return 0;
+return -1;
 }
 
 if (iRows>num_channels)
@@ -106,13 +110,10 @@ return 0;
 }
 
 
-
-
-
 Mat tempimg;
 image.copyTo(tempimg);
-tempimg.convertTo(tempimg,CV_64F);
-// temporary variable to do maniputaion on the input image
+tempimg.convertTo(tempimg,CV_32F);
+// temporary variable to do manipulation on the input image
 
 // Creating the output image
 
@@ -128,16 +129,15 @@ split(tempimg, channels);
 Mat outplanes[iRows];
 
 
-
-
-
-
-
-
-
 switch (inputarg)
 
 {
+case(1):
+
+sciprint("Needs atleast two arguments.\n");
+return 0;
+
+break;
 case(2):
 
 Mat temp1,temp2;
@@ -147,12 +147,11 @@ for (int i=0;i<iRows;i++)
 
 outplanes[i] = Mat::zeros(Size(image.rows, image.cols), channels[0].type());
 
-// Iterate over the multipler matrix
+// Iterate over the multipler matrixs
 for (int j=0;j<iCols;j++)
 {
-outplanes[i]=outplanes[i]+(channels[j]*M.at<double>(i,j));
-
-
+outplanes[i]=outplanes[i]+(channels[j]*M[i,j]);
+break;
 }
 
 
@@ -170,6 +169,25 @@ break;
 
 
 merge(outplanes,iRows,new_image);
+
+
+
+
+
+
+
+ sciprint("\n");  
+
+
+  for (int i = 0; i < new_image.rows; i++) {
+    for (int j = 0; j < new_image.cols; j++) {
+      sciprint("%f ", new_image.at<double>(i,j));
+
+    }
+    
+ sciprint("\n");  
+  }
+
 
 
 

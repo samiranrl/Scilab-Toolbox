@@ -7,6 +7,9 @@ names = [
             "imboxfilt","opencv_imboxfilt";	
  	    "imapplymatrix","opencv_imapplymatrix";
 "integralImage","opencv_integralImage";	
+"imhistmatch","opencv_imhistmatch";	
+"gabor","opencv_gabor";
+"imgaborfilt","opencv_imgaborfilt";
 			];
 
 files = [
@@ -14,7 +17,10 @@ files = [
      		"opencv_bwlookup.cpp",
             "opencv_imboxfilt.cpp",
 	    "opencv_imapplymatrix.cpp",
-"opencv_integralImage.cpp"
+"opencv_integralImage.cpp",
+"opencv_imhistmatch.cpp",
+"opencv_gabor.cpp",
+"opencv_imgaborfilt.cpp"
 		];
 
 function builder_gw_cpp()

@@ -9,8 +9,6 @@
 // An implementation of integralImage method of matlab
 // Usage: 
 // integralImage(I) : Calculate the integral image of I, I must be grayscale
-// imboxfilt(I,method) 
-
 
 // method : 'upright' (default)
 // method : 'rotated' The area sums are calulated over a rectangle, which is rotated 45 degrees
@@ -39,8 +37,8 @@ extern "C" {
 int opencv_integralImage(char *fname, unsigned long fname_len) {
 	SciErr sciErr;
 	int intErr = 0;
-	int iRows = 0, iCols = 0;
-	int *piAddr = NULL;
+
+
 	int *piAddr1 = NULL;
 
 	int error;
@@ -57,6 +55,17 @@ int opencv_integralImage(char *fname, unsigned long fname_len) {
 
 	Mat image;
 	retrieveImage(image, 1);
+
+
+
+  for (int i = 0; i < image.rows; i++) {
+    for (int j = 0; j < image.cols; j++) {
+      sciprint("%f ", image.at<double>(i,j));
+
+    }
+    
+ sciprint("\n");	
+  }
 
 // Error Checks
 
@@ -102,6 +111,19 @@ int opencv_integralImage(char *fname, unsigned long fname_len) {
 		}
 
 	}
+
+	  // sciprint("\n");
+
+  //  for (int i = 0; i < new_image.rows; i++) {
+  //    for (int j = 0; j < new_image.cols; j++) {
+  //      sciprint("%f ", new_image.at<double>(i,j));
+
+  //    }
+
+  // sciprint("\n");
+  //  }
+
+  // new_image is sent to scilab as output
 
 	int temp = nbInputArgument(pvApiCtx) + 1;
 	string tempstring = type2str(new_image.type());

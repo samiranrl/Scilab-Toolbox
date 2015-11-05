@@ -1,0 +1,121 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>imboxfilt</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="im2double.html">&lt;&lt; im2double</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_35ca0d148d9a7e592003525de26c737e.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="imcontrast.html">imcontrast &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">Image Processing Toolbox</a> &gt;&gt; <a href="section_35ca0d148d9a7e592003525de26c737e.html">Image Processing Toolbox</a> &gt; imboxfilt</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">imboxfilt</h1>
+
+		<p class="refpurpose">n*m box filter convolution in scilab with a padding type and normalization factor.</p></div>
+
+	<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+
+<div class="synopsis"><pre><span class="default">List</span> <span class="default">output_image</span><span class="default"> = </span><span class="functionid">imboxfilt</span><span class="default">(</span><span class="default">List</span> <span class="default">Input_Image</span><span class="default">);</span>
+<span class="default">List</span> <span class="default">output_image</span><span class="default"> = </span><span class="functionid">imboxfilt</span><span class="default">(</span><span class="default">List</span> <span class="default">Input_Image</span><span class="default">,</span><span class="default">kernel_size</span><span class="default">);</span>
+<span class="default">List</span> <span class="default">output_image</span><span class="default"> = </span><span class="functionid">imboxfilt</span><span class="default">(</span><span class="default">List</span> <span class="default">Input_Image</span><span class="default">,[</span><span class="default">kernel_size_x</span><span class="default">,</span><span class="default">kernel_size_y</span><span class="default">]);</span>
+<span class="default">List</span> <span class="default">output_image</span><span class="default"> = </span><span class="functionid">imboxfilt</span><span class="default">(</span><span class="default">List</span> <span class="default">Input_Image</span><span class="default">,</span><span class="default">kernel_size</span><span class="default">,</span><span class="default">padding_type</span><span class="default">);</span>
+<span class="default">List</span> <span class="default">output_image</span><span class="default"> = </span><span class="functionid">imboxfilt</span><span class="default">(</span><span class="default">List</span> <span class="default">Input_Image</span><span class="default">,</span><span class="default">kernel_size</span><span class="default">,</span><span class="default">padding_type</span><span class="default">,</span><span class="default">Normalization_Factor</span><span class="default">);</span></pre></div></div>
+	
+	<div class="refsection"><h3 class="title">Arguments</h3>
+		<dl><dt><span class="term">Input_Image :</span>
+				<dd><p class="para">the image matrix on which box filter has to be applied</p></dd></dt>
+			<dt><span class="term">kernel_size :</span>
+				<dd><p class="para">size of the box filter to be applied - must be an odd positive scalar &gt;=3 - If not mentioned, default is 3</p></dd></dt>
+			<dt><span class="term">[kernel_size_x,kernel_size_y]:</span>
+				<dd><p class="para">size of the box filter applied, kernel_size can be replaced by a 1*2 vector of the kernel size in the x and y directions respectively</p></dd></dt>
+
+
+
+
+
+
+			<dt><span class="term">padding_type</span>
+				<dd><p class="para">value: &#0039;default&#0039; : replicate the border padding, or take the value of the border pixel to be the closest image border pixel</p></dd>
+<dd><p class="para">value: &#0039;symmetric&#0039; : take the border values to be a reflection of the image</p></dd>
+<dd><p class="para">value: &#0039;circular&#0039; : take the border values assuming that the image is periodic</p></dd>
+<dd><p class="para">value: &#0039;constant&#0039; : pad the image with the provided scalar double</p></dd></dt>
+			<dt><span class="term">NormalizationFactor :</span>
+				<dd><p class="para">value: any scalar: this is multiplied to the image after convolution</p></dd></dt></dl></div>
+	
+	<div class="refsection"><h3 class="title">Description</h3>
+		<p class="para">The function smoothes an image using a n*m box filter.</p></div>
+
+	<div class="refsection"><h3 class="title">Example</h3>
+		<div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">a</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">lena.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">b</span><span class="scilaboperator">=</span><span class="scilabid">imboxfilt</span><span class="scilabopenclose">(</span><span class="scilabid">a</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">b</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+
+<span class="scilabid">a</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">lena.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">b</span><span class="scilaboperator">=</span><span class="scilabid">imboxfilt</span><span class="scilabopenclose">(</span><span class="scilabid">a</span><span class="scilabdefault">,</span><span class="scilabnumber">7</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">b</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+
+<span class="scilabid">a</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">lena.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">b</span><span class="scilaboperator">=</span><span class="scilabid">imboxfilt</span><span class="scilabopenclose">(</span><span class="scilabid">a</span><span class="scilabdefault">,</span><span class="scilabopenclose">[</span><span class="scilabnumber">9</span><span class="scilabdefault">,</span><span class="scilabnumber">11</span><span class="scilabopenclose">]</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">b</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+
+<span class="scilabid">a</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">lena.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">b</span><span class="scilaboperator">=</span><span class="scilabid">imboxfilt</span><span class="scilabopenclose">(</span><span class="scilabid">a</span><span class="scilabdefault">,</span><span class="scilabopenclose">[</span><span class="scilabnumber">9</span><span class="scilabdefault">,</span><span class="scilabnumber">11</span><span class="scilabopenclose">]</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">circular</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">b</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+
+<span class="scilabid">a</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">lena.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">b</span><span class="scilaboperator">=</span><span class="scilabid">imboxfilt</span><span class="scilabopenclose">(</span><span class="scilabid">a</span><span class="scilabdefault">,</span><span class="scilabopenclose">[</span><span class="scilabnumber">9</span><span class="scilabdefault">,</span><span class="scilabnumber">11</span><span class="scilabopenclose">]</span><span class="scilabdefault">,</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">b</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+	<div class="refsection"><h3 class="title">Authors</h3>
+
+		<ul class="itemizedlist"><li class="member">Samiran Roy</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="im2double.html">&lt;&lt; im2double</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_35ca0d148d9a7e592003525de26c737e.html">Image Processing Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="imcontrast.html">imcontrast &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

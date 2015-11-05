@@ -2,21 +2,26 @@
 <!DOCTYPE book [
 <!--Begin Entities-->
 <!ENTITY a37b6c70cb9922bb999ff2d99e9b2a33a SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/blur.xml">
+<!ENTITY aa73ada0e21215a16feafc223c7f2acff SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/bwlookup.xml">
 <!ENTITY a1531a5153ed9dae9a929d78719fbc975 SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/canny.xml">
 <!ENTITY afaeb2bd677f0553bf2b79c1a5acc4dea SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/cornerEigenValAndVecs.xml">
 <!ENTITY ab80c057e8c431a7508366bdd6a8ecba2 SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/cornerHarris.xml">
 <!ENTITY aa9fac3e9cd025c0cd2fde73996936c7d SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/filter2D.xml">
+<!ENTITY a3fc3fe3e184ce354e6e6772f23da62af SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/gabor.xml">
 <!ENTITY ae3dc06570acea0a74c6dd0877decd8de SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/gaussianblur.xml">
 <!ENTITY a66baef6768f73079110d6f455ed519b7 SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/getTextSize.xml">
 <!ENTITY a5bc669c6c837b9a4a45660bec9ec1573 SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/houghlines.xml">
 <!ENTITY a5dd76c31dbaa2704cfc904a5f5fd5402 SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/houghlinesp.xml">
 <!ENTITY aa24df36aa0f7d3f4fa2a0a8d535ef74f SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/im2double.xml">
+<!ENTITY ab146d380cb0f049cb627ef7819fe6520 SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/imboxfilt.xml">
 <!ENTITY a32d7022afe6d91929deaac32584f6759 SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/imcontrast.xml">
 <!ENTITY ab4c3a511e0b97a7a351b0e57e66ce1ca SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/imcrop.xml">
+<!ENTITY ab3a93b66fa052222a6bb865e7b44da1d SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/imgaborfilt.xml">
 <!ENTITY ae7c23102d8e91225fb08194798fc732d SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/imread.xml">
 <!ENTITY a59c491970ff17428d0df27e6942df62a SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/imresize.xml">
 <!ENTITY a13e1318c7593f1af84431aab94b95407 SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/imsharpen.xml">
 <!ENTITY a2ee86dd2ee94e9e1b60a5516d3a5ef02 SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/imwrite.xml">
+<!ENTITY a2f02d964075dbd1a1aaa36610ec0fdf4 SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/integralImage.xml">
 <!ENTITY a18724aadeb14d133271ee99b5771675e SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/montage.xml">
 <!ENTITY a8577f5abe11ff3ee7f91c825cac5827a SYSTEM "/home/samiran/Desktop/Scilab-Image-Processing-Toolbox-master/help/en_US/undistort.xml">
 <!--End Entities-->
@@ -36,21 +41,26 @@
 <part xml:id='section_35ca0d148d9a7e592003525de26c737e'>
 <title>Image Processing Toolbox</title>
 &a37b6c70cb9922bb999ff2d99e9b2a33a;
+&aa73ada0e21215a16feafc223c7f2acff;
 &a1531a5153ed9dae9a929d78719fbc975;
 &afaeb2bd677f0553bf2b79c1a5acc4dea;
 &ab80c057e8c431a7508366bdd6a8ecba2;
 &aa9fac3e9cd025c0cd2fde73996936c7d;
+&a3fc3fe3e184ce354e6e6772f23da62af;
 &ae3dc06570acea0a74c6dd0877decd8de;
 &a66baef6768f73079110d6f455ed519b7;
 &a5bc669c6c837b9a4a45660bec9ec1573;
 &a5dd76c31dbaa2704cfc904a5f5fd5402;
 &aa24df36aa0f7d3f4fa2a0a8d535ef74f;
+&ab146d380cb0f049cb627ef7819fe6520;
 &a32d7022afe6d91929deaac32584f6759;
 &ab4c3a511e0b97a7a351b0e57e66ce1ca;
+&ab3a93b66fa052222a6bb865e7b44da1d;
 &ae7c23102d8e91225fb08194798fc732d;
 &a59c491970ff17428d0df27e6942df62a;
 &a13e1318c7593f1af84431aab94b95407;
 &a2ee86dd2ee94e9e1b60a5516d3a5ef02;
+&a2f02d964075dbd1a1aaa36610ec0fdf4;
 &a18724aadeb14d133271ee99b5771675e;
 &a8577f5abe11ff3ee7f91c825cac5827a;
 </part>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xml:id="imgaborfilt" xml:lang="en_US"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>imgaborfilt</refname>
+
+		<refpurpose> Perform gabor filtering on a grayscale image with a gabor kernel of given wavelength and orientation </refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis>List output_image = gabor(List input_image,double wavelength, double orientation);</synopsis>
+	</refsynopsisdiv>
+	
+	<refsection>
+   		<title>Arguments</title>
+		<variablelist>
+				<varlistentry><term>input_image :</term>
+				<listitem><para>the input grayscale image matrix whose intrgralImage is to be calculated.</para></listitem>
+			</varlistentry>
+			<varlistentry><term>wavelength :</term>
+				<listitem><para>pixels/cycle of the sinusoidal carrier, must be >=2.</para></listitem>
+			</varlistentry>
+			<varlistentry><term>orientation :</term>
+				<listitem><para>orientation of the filter in degrees, must be between [0,360]</para></listitem>
+			</varlistentry>
+			
+		</variablelist>
+	</refsection>
+	
+	<refsection>
+		<title>Description</title>
+		<para>
+			The function performs gabor filtering on a grayscale image with a gabor kernel of given wavelength and orientation
+			
+		</para>
+	</refsection>
+
+	<refsection>
+		<title>Example</title>
+		<programlisting role="example"><![CDATA[
+							
+						   a = imread("gs.jpg");
+							b=imgaborfilt(a,2,0);
+							imshow(b);
+   		]]></programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Samiran Roy</member>
+		</simplelist>
+	</refsection>
+</refentry>

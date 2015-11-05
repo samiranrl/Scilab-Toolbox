@@ -4,21 +4,26 @@
 <tocitem target="index" text="Image Processing Toolbox">
 <tocitem target="section_35ca0d148d9a7e592003525de26c737e" text="Image Processing Toolbox">
 <tocitem target="blur" text="blur"/>
+<tocitem target="bwlookup" text="bwlookup"/>
 <tocitem target="canny" text="canny"/>
 <tocitem target="cornerEigenValAndVecs" text="cornerEigenValsAndVecs"/>
 <tocitem target="cornerHarris" text="CornerHarris"/>
 <tocitem target="filter2D" text="filter2D"/>
+<tocitem target="gabor" text="gabor"/>
 <tocitem target="gaussianblur" text="gaussianblur"/>
 <tocitem target="getTextSize" text="getTextSize"/>
 <tocitem target="houghlines" text="HoughLines"/>
 <tocitem target="houghlinesp" text="HoughLinesP"/>
 <tocitem target="im2double" text="im2double"/>
+<tocitem target="imboxfilt" text="imboxfilt"/>
 <tocitem target="imcontrast" text="imcontrast"/>
 <tocitem target="imcrop" text="imcrop"/>
+<tocitem target="imgaborfilt" text="imgaborfilt"/>
 <tocitem target="imread" text="imread"/>
 <tocitem target="imresize" text="imresize"/>
 <tocitem target="imsharpen" text="imsharpen"/>
 <tocitem target="imwrite" text="imwrite"/>
+<tocitem target="integralImage" text="integralImage"/>
 <tocitem target="montage" text="montage"/>
 <tocitem target="undistort" text="Undistort"/>
 </tocitem>
