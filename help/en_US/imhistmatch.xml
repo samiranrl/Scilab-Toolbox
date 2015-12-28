@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xml:id="imhistmatch" xml:lang="en_US"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>imhistmatch</refname>
+
+		<refpurpose> Matches histogram of input image with a N-bin histogram of a reference image</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis>List output_image = imhistmatch(List input_image, List reference_image);
+			 List output_image = imhistmatch(List input_image, List reference_image, Int output_bins);</synopsis>
+	</refsynopsisdiv>
+	
+	<refsection>
+   		<title>Arguments</title>
+		<variablelist>
+			<varlistentry><term>input_image :</term>
+				<listitem><para>the input image can be grayscale or color image.</para></listitem>
+			</varlistentry>
+			<varlistentry><term>reference_image :</term>
+				<listitem><para> If the input and reference images are grayscale images: Histogram matching is applied directly</para></listitem>
+				<listitem><para> If the input image is color, and the reference image is grayscale: Each channels is matched with the grayscale image</para></listitem>
+					<listitem><para> If the input and reference images are color images: Each channel is matched with it's corresponding channel</para></listitem>
+			</varlistentry>
+			
+		</variablelist>
+	</refsection>
+	
+	<refsection>
+		<title>Description</title>
+		<para>
+			
+			imhistmatch transforms the input image such that its histogram approximately matches a given reference. The given reference image has a histogram of of N bins. The default value of N is 256. This value can also be specified by the user using the third argument.
+			
+		</para>
+	</refsection>
+
+	<refsection>
+		<title>Example</title>
+		<programlisting role="example">
+			<![CDATA[
+							a = imread("gs.jpg");
+							b = imread("lena.jpg");
+							c=imhistmatch(b,a);
+							imshow(c);
+   		]]>
+
+   	</programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Samiran Roy</member>
+		</simplelist>
+	</refsection>
+</refentry>

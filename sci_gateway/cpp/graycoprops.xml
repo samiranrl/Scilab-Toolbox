@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xml:id="graycoprops" xml:lang="en_US"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>graycoprops</refname>
+
+		<refpurpose> Calculates specific properties of gray-level co-occurrence matrix</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis>double property_value = graycoprops(list input_GLCM, string property);</synopsis>
+	</refsynopsisdiv>
+	
+	<refsection>
+   		<title>Arguments</title>
+		<variablelist>
+			<varlistentry><term>input_GLCM :</term>
+				<listitem><para>the input gray level co-occurence matrix whose properties are to be calculated</para></listitem>
+			</varlistentry>
+			<varlistentry><term>property :</term>
+				<listitem><para> property : 'contrast' : the intensity contrast between a pixel and its neighbor over the GLCM.</para></listitem>
+	<listitem><para> property : 'correlation' : correlation a pixel is to its neighbor over the GLCM.
+</para></listitem>
+	<listitem><para> property : 'energy' : sum of squared elements in the GLCM.</para></listitem>
+	<listitem><para> property : 'homogeneity' : measures the closeness of the distribution of elements in the GLCM to the GLCM diagonal.</para></listitem>
+		
+			</varlistentry>
+			
+		</variablelist>
+	</refsection>
+	
+	<refsection>
+		<title>Description</title>
+		<para>
+			The function calculates specific properties of gray-level co-occurrence matrix, specified by the user input.
+			
+		</para>
+	</refsection>
+
+	<refsection>
+		<title>Example</title>
+		<programlisting role="example">
+			<![CDATA[
+							a = imread("gs.jpg");
+							b=graycoprops(a,'contrast');
+	
+   		]]>
+
+   	</programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Samiran Roy</member>
+		</simplelist>
+	</refsection>
+</refentry>

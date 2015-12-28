@@ -13,7 +13,7 @@
 
 // Known Changes from Matlab:
 /*
- * Default number of bins is 256
+ * Default number of bins is 256 - for both input and output
  */
 
 #include <numeric>
@@ -30,18 +30,25 @@ extern "C" {
 #include <localization.h>
 #include "sciprint.h"
 #include "../common.h"
+
+// Matches the input image histogram with the reference image histogram,
+// returning the output in n bins
+
 Mat match(Mat image, Mat ref, int bins) {
   Mat dst, hist;
   Mat input_image = Mat::zeros(image.size(), CV_8U);
   Mat refhist;
 
-  Mat cdf = Mat(bins, 1, CV_8U, cvScalar(0));
+  int inputbins = 256;
+
+  Mat cdf = Mat(inputbins, 1, CV_8U, cvScalar(0));
 
   Mat refcdf = Mat(bins, 1, CV_8U, cvScalar(0));
 
   // Calculating histogram of image
   image.convertTo(dst, CV_8U, 1, 0);
-  calcHist(&dst, 1, 0, Mat(), hist, 1, &bins, 0);
+
+  calcHist(&dst, 1, 0, Mat(), hist, 1, &inputbins, 0);
 
   // Calculating histogram of reference image
 
@@ -52,15 +59,15 @@ Mat match(Mat image, Mat ref, int bins) {
   refhist.copyTo(refcdf);
 
   // calculate cdf
-  for (int h = 1; h < bins; h++) {
+  for (int h = 1; h < inputbins; h++) {
     float binVal = hist.at<float>(h, 0);
 
     cdf.at<float>(h, 0) = cdf.at<float>(h, 0) + cdf.at<float>(h - 1, 0);
   }
 
   // normalize histogram
-  for (int h = 0; h < bins; h++) {
-    cdf.at<float>(h, 0) = cdf.at<float>(h, 0) / cdf.at<float>(bins - 1, 0);
+  for (int h = 0; h < inputbins; h++) {
+    cdf.at<float>(h, 0) = cdf.at<float>(h, 0) / cdf.at<float>(inputbins - 1, 0);
   }
 
   // for reference image
@@ -100,7 +107,7 @@ Mat match(Mat image, Mat ref, int bins) {
     for (int j = 0; j < input_image.cols; j++) {
       observed_cdf = cdf.at<float>(image.at<uchar>(i, j), 0);
 
-      minval = 1000;  // junk
+      minval = 1000;  // will be overwritten
 
       for (int h = 0; h < bins; h++) {
         if ((abs(refcdf.at<float>(h, 0) - observed_cdf)) < minval) {
@@ -137,7 +144,7 @@ int opencv_imhistmatch(char *fname, unsigned long fname_len) {
 
   // get input matrix
 
-  Mat image, new_image,r,g,b;
+  Mat image, new_image, r, g, b;
   retrieveImage(image, 1);
 
   Mat ref;
@@ -202,35 +209,25 @@ int opencv_imhistmatch(char *fname, unsigned long fname_len) {
     }
   }
 
-
-   int bins = (int)num_bins;
-
+  int bins = (int)num_bins;
 
   if (case1 == 1) {
- 
-
     new_image = match(image, ref, bins);
 
   }
 
   else if (case1 == 2) {
+    Mat rgb[3];
 
-Mat rgb[3];
+    split(image, rgb);
 
+    r = match(rgb[0], ref, bins);
 
+    g = match(rgb[1], ref, bins);
 
-  	split(image,rgb);
+    b = match(rgb[2], ref, bins);
 
-  r=match(rgb[0], ref, bins);
-  
-  g=match(rgb[1], ref, bins);
-
-    b=match(rgb[2], ref, bins);
-
-
-   vector<Mat> channels;
-
-
+    vector<Mat> channels;
 
     channels.push_back(r);
     channels.push_back(g);
@@ -238,31 +235,24 @@ Mat rgb[3];
 
     merge(channels, new_image);
 
-
-transpose(new_image,new_image);
+    transpose(new_image, new_image);
 
   }
-
-
 
   else if (case1 == 3) {
+    Mat rgb[3];
+    Mat rgbref[3];
 
-Mat rgb[3];
-Mat rgbref[3];
+    split(ref, rgbref);
+    split(image, rgb);
 
-split(ref,rgbref);
-  	split(image,rgb);
+    r = match(rgb[0], rgbref[0], bins);
 
-  r=match(rgb[0], rgbref[0], bins);
-  
-  g=match(rgb[1], rgbref[1], bins);
+    g = match(rgb[1], rgbref[1], bins);
 
-    b=match(rgb[2], rgbref[2], bins);
+    b = match(rgb[2], rgbref[2], bins);
 
-
-   vector<Mat> channels;
-
-
+    vector<Mat> channels;
 
     channels.push_back(r);
     channels.push_back(g);
@@ -270,38 +260,11 @@ split(ref,rgbref);
 
     merge(channels, new_image);
 
-
-transpose(new_image,new_image);
-
+    transpose(new_image, new_image);
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  // Normalizing the final image
+  cv::normalize(new_image, new_image, 0, 255, NORM_MINMAX, CV_8U);
 
   // sciprint("\n");
 
@@ -313,8 +276,6 @@ transpose(new_image,new_image);
 
   // sciprint("\n");
   //  }
-
-
 
   int temp = nbInputArgument(pvApiCtx) + 1;
   string tempstring = type2str(new_image.type());
