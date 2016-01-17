@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xml:id="cornermetric" xml:lang="en_US"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>cornermetric</refname>
+
+		<refpurpose> Calculates a corner metric matrix for the input grayscale image, based on the Harris Corner Detection method and Shi and Tomasi's minimum eigenvalue method.
+ </refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis>List output_image = cornermetric(List input_image, String method);
+			  List output_image = cornermetric(List input_image,String method);
+			 List output_image = cornermetric(List input_image,String method,Float sensitivity_factor);</synopsis>
+	</refsynopsisdiv>
+	
+	<refsection>
+   		<title>Arguments</title>
+		<variablelist>
+			<varlistentry><term>input_image :</term>
+				<listitem><para>the input grayscale image matrix whose corner metric image is to be calculated.</para></listitem>
+			</varlistentry>
+			<varlistentry><term>method :</term>
+				<listitem><para> method : 'harris' Uses Harris Corner Detection</para></listitem>
+				<listitem><para>method : 'minimumeigenvalue' Uses Shi and Tomasi's minimum eigenvalue method.</para></listitem>
+			</varlistentry>
+			<varlistentry><term>sensitivity_factor :</term>
+				<listitem><para> The sensitivity factor, to be used with the harris corner detection method. By default, it is 0.04. It accepts a value between 0 and 0.25.</para></listitem>
+			
+			</varlistentry>
+			
+		</variablelist>
+	</refsection>
+	
+	<refsection>
+		<title>Description</title>
+		<para>
+			 Calculates a corner metric matrix for the input grayscale image, based on the Harris Corner Detection method and Shi and Tomasi's minimum eigenvalue method. Normalizes the measure for easy visulization and thresholding.
+			
+		</para>
+	</refsection>
+
+	<refsection>
+		<title>Example</title>
+		<programlisting role="example">
+			<![CDATA[
+							a = imread("gs.jpg");
+							b=cornermetric(a,'harris');
+							imshow(b);
+   		]]>
+   				<![CDATA[
+							a = imread("gs.jpg");
+							b=cornermetric(a,'minimumeigenvalue');
+							imshow(b);
+   		]]>
+   		<![CDATA[
+							a = imread("gs.jpg");
+							b=cornermetric(a,'harris',0.05);
+							imshow(b);
+   		]]>
+
+   	</programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Samiran Roy</member>
+		</simplelist>
+	</refsection>
+</refentry>
