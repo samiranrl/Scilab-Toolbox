@@ -10,6 +10,14 @@ names = [
 "imhistmatch","opencv_imhistmatch";	
 "gabor","opencv_gabor";
 "imgaborfilt","opencv_imgaborfilt";
+"imgaussfilt","opencv_imgaussfilt";
+"bwunpack","opencv_bwunpack";
+"adapthisteq","opencv_adapthisteq";
+"graycoprops","opencv_graycoprops";
+"cornermetric","opencv_cornermetric";
+"imquantize","opencv_imquantize";
+"roifilt2","opencv_roifilt2";
+
 			];
 
 files = [
@@ -20,7 +28,14 @@ files = [
 "opencv_integralImage.cpp",
 "opencv_imhistmatch.cpp",
 "opencv_gabor.cpp",
-"opencv_imgaborfilt.cpp"
+"opencv_imgaborfilt.cpp",
+"opencv_imgaussfilt.cpp",
+"opencv_bwunpack.cpp",
+"opencv_adapthisteq.cpp",
+"opencv_graycoprops.cpp",
+"opencv_cornermetric.cpp",
+"opencv_imquantize.cpp",
+"opencv_roifilt2.cpp"
 		];
 
 function builder_gw_cpp()

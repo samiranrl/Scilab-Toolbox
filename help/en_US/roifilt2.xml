@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xml:id="roifilt2" xml:lang="en_US"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>roifilt2</refname>
+
+		<refpurpose> roifilt2 filters the input grayscale image with the given two-dimensional filter in a given roi.
+</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis>List output_image = roifilt2(List filter, List input_image, List roi);
+</synopsis>
+	</refsynopsisdiv>
+	
+	<refsection>
+   		<title>Arguments</title>
+		<variablelist>
+			<varlistentry><term>filter :</term>
+				<listitem><para>the input two dimentional filter which is convolved with the input_image.</para></listitem>
+			</varlistentry>
+			<varlistentry><term>input_image :</term>
+				<listitem><para> the input image which is filtered</para></listitem>
+				
+			</varlistentry>
+<varlistentry><term>roi :</term>
+				<listitem><para>roi is a binary image the same size as I that defines an ROI used as a mask for filtering. roifilt2 returns an image that consists of filtered values for pixels in locations where roi contains 1's, and unfiltered values for the rest of the pixels</para></listitem>
+				
+			</varlistentry>
+			
+		</variablelist>
+	</refsection>
+	
+	<refsection>
+		<title>Description</title>
+		<para>
+			roifilt2 filters the input image with the given two-dimensional filter.roi is a binary image the same size as I that defines an ROI used as a mask for filtering. Only non zero roi regions are filtered, rest of the image pixels remain untouched.
+			
+		</para>
+	</refsection>
+
+	<refsection>
+		<title>Example</title>
+		<programlisting role="example">
+			<![CDATA[
+							a = imread("gs.jpg");
+							b=roifilt2(list(ones(3,3)),a,a);
+							imshow(b);
+   		]]>
+
+   	</programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Samiran Roy</member>
+		</simplelist>
+	</refsection>
+</refentry>
