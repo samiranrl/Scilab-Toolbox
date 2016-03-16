@@ -124,7 +124,7 @@ int opencv_imquantize(char *fname, unsigned long fname_len) {
     sciErr = getMatrixOfDouble(pvApiCtx, piAddr3, &iRows2, &iCols2, &values); mn
     if (sciErr.iErr) {
       sciprint(
-          "Error: Levels 1*(n+1) matrix of scalars, where n is the number of "
+          "Error: Values 1*(n+1) matrix of scalars, where n is the number of "
           "quantization levels "
           "\n");
       return -1;
@@ -132,7 +132,7 @@ int opencv_imquantize(char *fname, unsigned long fname_len) {
 
     if (iRows2 != 1) {
       sciprint(
-          "Error: Levels 1*(n+1) matrix of scalars, where n is the number of "
+          "Error: Values 1*(n+1) matrix of scalars, where n is the number of "
           "quantization levels "
           "\n");
 
@@ -141,7 +141,7 @@ int opencv_imquantize(char *fname, unsigned long fname_len) {
 
     if (iCols != iCols2 - 1) {
       sciprint(
-          "Error: Levels 1*(n+1) matrix of scalars, where n is the number of "
+          "Error: Values 1*(n+1) matrix of scalars, where n is the number of "
           "quantization levels "
           "\n");
       return -1;

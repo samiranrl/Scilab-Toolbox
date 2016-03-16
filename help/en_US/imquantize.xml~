@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xml:id="imquantize" xml:lang="en_US"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>imquantize</refname>
+
+		<refpurpose> Imquantize thresholds the image according to an input array of quantization levels.</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+<synopsis>      List output_image = imquantize(List Input_Image, List levels);
+		List output_image = imquantize(List Input_Image, List levels, List values);
+       </synopsis>
+
+		
+	</refsynopsisdiv>
+	
+	<refsection>
+   		<title>Arguments</title>
+		<variablelist>
+			<varlistentry><term>Input_Image :</term>
+				<listitem><para>the image matrix on which box filter has to be applied</para></listitem>
+			</varlistentry>
+			<varlistentry><term>levels :</term>
+				<listitem><para>Levels must be a strictly increasing 1*n matrix of scalars. These are the thresholds of the quantization.</para></listitem>
+			</varlistentry>
+			<varlistentry><term>Values:</term>
+				<listitem><para>  " Values 1*(n+1) matrix of scalars, where n is the number of quantization levels. It decides the values to give to the thresholds. "</para></listitem>
+			</varlistentry>
+
+			
+		</variablelist>
+	</refsection>
+	
+	<refsection>
+		<title>Description</title>
+		<para>
+			Quantize image using specified quantization levels and output values
+
+		</para>
+	</refsection>
+
+	<refsection>
+		<title>Example</title>
+		<programlisting role="example">
+
+
+<![CDATA[
+							a = imread("lena.jpg");
+							b=imquantize(a,[50,100,150,200,250]);
+							imshow(b);
+   		]]>
+
+
+
+
+<![CDATA[
+							a = imread("lena.jpg");
+							b=imquantize(a,[50,100,150,200,250],[10,20,30,50,60,70]);
+							imshow(b);
+   		]]>
+
+
+
+
+
+
+
+
+
+</programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Samiran Roy</member>
+		</simplelist>
+	</refsection>
+</refentry>
