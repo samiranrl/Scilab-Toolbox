@@ -1,7 +1,3 @@
-# Scilab-Toolbox
-
-Functions for the scilab toolboxes.
-
  ==========================================================                   
 ||           Scilab Image Processing Toolbox              ||
  ==========================================================
@@ -17,7 +13,3 @@ Usage
 *Execute the builder by typing "exec builder.sce"
 *Execute the loader by typing "exec loader.sce"
 *Use the software as per your requirements
-
-NOTE:
-The functions added by me will be in the sci_gateway/cpp only
-The builder_gateway_cpp.sce file is changed accordingly
