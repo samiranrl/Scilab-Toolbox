@@ -1,6 +1,6 @@
- ==========================================================                   
-||           Scilab Image Processing Toolbox              ||
- ==========================================================
+            
+## Scilab Image Processing Toolbox
+
 
 Dependencies
 ------------
